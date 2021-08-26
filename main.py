@@ -1,8 +1,10 @@
 import pygame
 
 from Board import Board
-from piece_definitions import draw
+from Game import Game
 
+# TODO Complete board array
+# TODO Make move function on piece
 # TODO Make check_valid_move function
 
 pygame.init()
@@ -14,7 +16,7 @@ BLACK = (0, 0, 0)
 win = pygame.display.set_mode([WIDTH, HEIGHT])
 clock = pygame.time.Clock()
 
-board = Board(100)
+game = Game(win)
 
 running = True
 while running:
@@ -26,8 +28,7 @@ while running:
 
     win.fill(BLACK)
 
-    board.draw(win)
-    draw(win, board)
+    game.update()
 
     pygame.display.update()
     clock.tick(30)
